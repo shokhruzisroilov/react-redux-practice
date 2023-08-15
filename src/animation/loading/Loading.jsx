@@ -7,6 +7,6 @@ const Loading = () => {
 				<span className='loader-inner'></span>
 			</span>
 		</div>
-	)	
+	)
 }
 export default Loading

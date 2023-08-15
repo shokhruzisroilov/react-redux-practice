@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { Input, TextArea } from './index'
 
 const ArticleForm = props => {
-	const {isLoading} = useSelector(state => state.article)
+	const { isLoading } = useSelector(state => state.article)
 	const {
 		title,
 		setTitle,
@@ -11,7 +11,7 @@ const ArticleForm = props => {
 		body,
 		setBody,
 		formSubmit,
-		button
+		button,
 	} = props
 	return (
 		<form onSubmit={formSubmit}>

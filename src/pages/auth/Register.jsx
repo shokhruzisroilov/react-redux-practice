@@ -3,7 +3,11 @@ import { useNavigate } from 'react-router-dom'
 import { logo } from '../../constants'
 import { Input, ValidationError } from '../../components/index'
 import { useDispatch, useSelector } from 'react-redux'
-import { signUserFailure, signUserStart, signUserSuccess } from '../../app/features/auth'
+import {
+	signUserFailure,
+	signUserStart,
+	signUserSuccess,
+} from '../../app/features/auth'
 import AuthService from '../../services/auth'
 
 const Register = () => {
@@ -11,26 +15,26 @@ const Register = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const dispatch = useDispatch()
-	const {isLoading, loggedIn} = useSelector((store) => store.auth)
+	const { isLoading, loggedIn } = useSelector(store => store.auth)
 	const navigate = useNavigate()
 
-	const registerHandler = async (e) => {
+	const registerHandler = async e => {
 		e.preventDefault()
 		dispatch(signUserStart())
-		const user = {username: name, email, password}
+		const user = { username: name, email, password }
 		try {
 			const response = await AuthService.userRegister(user)
 			dispatch(signUserSuccess(response.user))
 			navigate('/')
-		}catch (error) {
+		} catch (error) {
 			dispatch(signUserFailure(error.response.data.errors))
 		}
 	}
 	useEffect(() => {
-		if(loggedIn){
+		if (loggedIn) {
 			navigate('/')
 		}
-	},[loggedIn])
+	}, [loggedIn])
 
 	return (
 		<div className='d-flex align-content-center justify-content-center mt-5'>
@@ -63,8 +67,13 @@ const Register = () => {
 						state={password}
 						setState={setPassword}
 					/>
-					<button className='btn btn-dark w-100 py-2 mt-2' type='submit' disabled={isLoading} onClick={registerHandler}>
-						{isLoading ? "Loading..." : "Register"}
+					<button
+						className='btn btn-dark w-100 py-2 mt-2'
+						type='submit'
+						disabled={isLoading}
+						onClick={registerHandler}
+					>
+						{isLoading ? 'Loading...' : 'Register'}
 					</button>
 				</form>
 			</main>

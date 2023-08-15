@@ -1,21 +1,25 @@
-import { useCallback } from "react"
-import { useSelector } from "react-redux"
+import { useCallback } from 'react'
+import { useSelector } from 'react-redux'
 
 const ValidationError = () => {
-	const {error} = useSelector(state => state.auth)
+	const { error } = useSelector(state => state.auth)
 
 	const errorMessage = useCallback(() => {
 		return Object.keys(error).map(name => {
 			const msg = error[name].join(', ')
 			return `${name}-${msg}`
 		})
-	},[error])
+	}, [error])
 
 	return (
 		error !== null &&
 		errorMessage().map(error => {
 			return (
-				<div class='alert alert-danger p-1 m-1 text-start' role='alert' key={error}>
+				<div
+					class='alert alert-danger p-1 m-1 text-start'
+					role='alert'
+					key={error}
+				>
 					{error}
 				</div>
 			)

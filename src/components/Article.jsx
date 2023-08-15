@@ -35,7 +35,7 @@ const Article = ({
 							<>
 								<button
 									className='btn btn-sm btn-outline-dark'
-									onClick={() => navigate(`/edit-article/${slug}`)}	
+									onClick={() => navigate(`/edit-article/${slug}`)}
 								>
 									Edit
 								</button>

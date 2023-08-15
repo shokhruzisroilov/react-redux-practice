@@ -31,7 +31,11 @@ const Navbar = () => {
 								</NavLink>
 							</li>
 							<li className='nav-item'>
-								<NavLink to='/create-article' className='nav-link' aria-current='page'>
+								<NavLink
+									to='/create-article'
+									className='nav-link'
+									aria-current='page'
+								>
 									Create Article
 								</NavLink>
 							</li>

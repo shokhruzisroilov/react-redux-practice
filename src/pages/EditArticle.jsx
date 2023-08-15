@@ -25,7 +25,7 @@ const EditArticle = () => {
 		try {
 			const response = await ArticleService.getArticleDetail(slug)
 			setTitle(response.article.title)
-			setDescription(response.article.description)	
+			setDescription(response.article.description)
 			setBody(response.article.body)
 			dispatch(getArticleDetailSuccess(response.article))
 		} catch (error) {
@@ -40,9 +40,9 @@ const EditArticle = () => {
 	const formSubmit = async e => {
 		e.preventDefault()
 		dispatch(postArticleStart())
-		const article = { title, description, body }		
+		const article = { title, description, body }
 		try {
-			 await ArticleService.editArticle(slug, article)
+			await ArticleService.editArticle(slug, article)
 			dispatch(postArticleSuccess())
 			navigate('/')
 		} catch (error) {

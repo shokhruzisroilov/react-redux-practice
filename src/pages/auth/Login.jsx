@@ -2,7 +2,11 @@ import { useState, useEffect } from 'react'
 import { logo } from '../../constants'
 import { Input, ValidationError } from '../../components/index'
 import { useDispatch, useSelector } from 'react-redux'
-import { signUserFailure, signUserStart, signUserSuccess } from '../../app/features/auth'
+import {
+	signUserFailure,
+	signUserStart,
+	signUserSuccess,
+} from '../../app/features/auth'
 import AuthService from '../../services/auth'
 import { useNavigate } from 'react-router-dom'
 
@@ -10,13 +14,13 @@ const Login = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const dispatch = useDispatch()
-	const {isLoading, loggedIn} = useSelector((state )=> state.auth)
+	const { isLoading, loggedIn } = useSelector(state => state.auth)
 	const navigate = useNavigate()
 
-	const loginHandler = async (e) => {
+	const loginHandler = async e => {
 		e.preventDefault()
 		dispatch(signUserStart())
-		const user = {email, password}
+		const user = { email, password }
 		try {
 			const response = await AuthService.userLogin(user)
 			dispatch(signUserSuccess(response.user))
@@ -25,11 +29,11 @@ const Login = () => {
 			dispatch(signUserFailure(error.response.data.errors))
 		}
 	}
-		useEffect(() => {
-			if (loggedIn) {
-				navigate('/')
-			}
-		}, [loggedIn])
+	useEffect(() => {
+		if (loggedIn) {
+			navigate('/')
+		}
+	}, [loggedIn])
 	return (
 		<div className='d-flex align-content-center justify-content-center mt-5'>
 			<main className='form-signin w-25 m-auto text-center'>
@@ -61,7 +65,7 @@ const Login = () => {
 						disabled={isLoading}
 						onClick={loginHandler}
 					>
-						{isLoading ? "Loading..." : "Login"}
+						{isLoading ? 'Loading...' : 'Login'}
 					</button>
 				</form>
 			</main>

@@ -6,7 +6,7 @@ import {
 	Register,
 	Layout,
 	CreateArticle,
-	EditArticle
+	EditArticle,
 } from '../index'
 import { useDispatch } from 'react-redux'
 import AuthService from '../services/auth'
@@ -52,12 +52,12 @@ function App() {
 		<div className='container'>
 			<Routes>
 				<Route path='/' element={<Layout />}>
-					<Route index element={<Main getArticles={getArticles}/>} />
+					<Route index element={<Main getArticles={getArticles} />} />
 					<Route path='/login' element={<Login />} />
 					<Route path='/register' element={<Register />} />
 					<Route path='/article/:slug' element={<ArticleDetail />} />
-					<Route path='/create-article' element={<CreateArticle/>} />
-					<Route path='/edit-article/:slug' element={<EditArticle/>} />
+					<Route path='/create-article' element={<CreateArticle />} />
+					<Route path='/edit-article/:slug' element={<EditArticle />} />
 				</Route>
 			</Routes>
 		</div>
