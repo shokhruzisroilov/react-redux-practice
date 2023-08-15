@@ -7,7 +7,7 @@ import {
 	getArticleSuccess,
 	postArticleFailure,
 	postArticleSuccess,
-	postArticlestart,
+	postArticleStart,
 } from '../app/features/article'
 
 const CreateArticle = () => {
@@ -20,7 +20,7 @@ const CreateArticle = () => {
 
 	const formSubmit = async e => {
 		e.preventDefault()
-		dispatch(postArticlestart())
+		dispatch(postArticleStart())
 		const article = { title, description, body }
 		try {
 			const response = await ArticleService.postArticle(article)
@@ -45,7 +45,7 @@ const CreateArticle = () => {
 	return (
 		<div className='my-2 w-75 m-auto'>
 			<h2 className='text-center'>Create Article</h2>
-			<ArticleForm {...formProps} />
+			<ArticleForm {...formProps} button={'Create article'} />
 		</div>
 	)
 }

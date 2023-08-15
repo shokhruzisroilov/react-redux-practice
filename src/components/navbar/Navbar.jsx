@@ -35,11 +35,6 @@ const Navbar = () => {
 									Create Article
 								</NavLink>
 							</li>
-							<li className='nav-item'>
-								<NavLink to='/' className='nav-link' aria-current='page'>
-									Home
-								</NavLink>
-							</li>
 						</ul>
 					</div>
 				</div>

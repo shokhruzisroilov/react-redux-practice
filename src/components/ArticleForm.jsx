@@ -11,6 +11,7 @@ const ArticleForm = props => {
 		body,
 		setBody,
 		formSubmit,
+		button
 	} = props
 	return (
 		<form onSubmit={formSubmit}>
@@ -38,7 +39,7 @@ const ArticleForm = props => {
 				<TextArea label={'Body'} height={200} state={body} setState={setBody} />
 			</div>
 			<button className='btn btn-dark w-100 py-2 mt-2' type='submit'>
-				{isLoading ? 'Loading...' : 'Create article'}
+				{isLoading ? 'Loading...' : button}
 			</button>
 		</form>
 	)

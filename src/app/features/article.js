@@ -32,7 +32,7 @@ export const articleSlice = createSlice({
 		getArticleDetailFailure: state => {
 			state.isLoading = false
 		},
-		postArticlestart: state => {
+		postArticleStart: state => {
 			state.isLoading = true
 		},
 		postArticleSuccess: state => {
@@ -52,7 +52,7 @@ export const {
 	getArticleDetailStart,
 	getArticleDetailSuccess,
 	getArticleDetailFailure,
-	postArticlestart,
+	postArticleStart,
 	postArticleSuccess,
 	postArticleFailure,
 } = articleSlice.actions

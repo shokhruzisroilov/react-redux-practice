@@ -5,5 +5,5 @@ export { default as Register } from './pages/auth/Register'
 export { default as Layout } from './layout/Layout'
 export { default as Loading } from './animation/loading/Loading'
 export { default as Spinner } from './animation/spinner/Spinner'
-export {default as CreateArticle} from './pages/CreateArticle'
-
+export { default as CreateArticle } from './pages/CreateArticle'
+export { default as EditArticle } from './pages/EditArticle'

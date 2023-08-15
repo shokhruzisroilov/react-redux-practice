@@ -20,18 +20,18 @@ const ArticleDetail = () => {
 		state => state.article
 	)
 
-	useEffect(() => {
-		const getArticleDetail = async () => {
-			dispatch(getArticleDetailStart())
-			try {
-				const response = await ArticleService.getArticleDetail(slug)
-				dispatch(getArticleDetailSuccess(response.article))
-			} catch (error) {
-				dispatch(getArticleDetailFailure(error))
-			}
+	const getArticleDetail = async () => {
+		dispatch(getArticleDetailStart())
+		try {
+			const response = await ArticleService.getArticleDetail(slug)
+			dispatch(getArticleDetailSuccess(response.article))
+		} catch (error) {
+			dispatch(getArticleDetailFailure(error))
 		}
+	}
+	useEffect(() => {
 		getArticleDetail()
-	}, [])
+	}, [slug])
 
 	return isLoading ? (
 		<Loading />
