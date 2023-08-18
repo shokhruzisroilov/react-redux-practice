@@ -36,7 +36,7 @@ const Login = () => {
 	}, [loggedIn])
 	return (
 		<div className='d-flex align-content-center justify-content-center mt-5'>
-			<main className='form-signin w-25 m-auto text-center'>
+			<main className='form-signin max-w-25 m-auto text-center'>
 				<form>
 					<img
 						className='mb-4'
