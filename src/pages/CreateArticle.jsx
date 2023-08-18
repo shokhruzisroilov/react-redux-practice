@@ -4,7 +4,6 @@ import { ArticleForm } from '../components'
 import ArticleService from '../services/article'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-	getArticleSuccess,
 	postArticleFailure,
 	postArticleSuccess,
 	postArticleStart,
@@ -16,7 +15,6 @@ const CreateArticle = () => {
 	const [body, setBody] = useState('')
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const { articles } = useSelector(state => state.article)
 
 	const formSubmit = async e => {
 		e.preventDefault()
@@ -24,9 +22,7 @@ const CreateArticle = () => {
 		const article = { title, description, body }
 		try {
 			const response = await ArticleService.postArticle(article)
-			const arr = [response.article, ...articles]
 			dispatch(postArticleSuccess(response.article))
-			dispatch(getArticleSuccess(arr))
 			navigate('/')
 		} catch (error) {
 			dispatch(postArticleFailure(error))

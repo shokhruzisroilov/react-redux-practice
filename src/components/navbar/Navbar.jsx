@@ -14,7 +14,7 @@ const Navbar = () => {
 	}
 
 	return (
-		<div className='d-flex flex-column flex-md-row align-items-center border-bottom container py-3'>
+		<div className='navbar d-flex flex-column flex-md-row align-items-center border-bottom container py-3'>
 			<Link
 				to='/'
 				className='d-flex align-items-center link-body-emphasis text-decoration-none'
@@ -23,8 +23,8 @@ const Navbar = () => {
 			</Link>
 			<nav className='navbar navbar-expand-lg justify-content-center align'>
 				<div className='container-fluid'>
-					<div className='collapse navbar-collapse' id='navbarNav'>
-						<ul className='navbar-nav'>
+					<div className='navbar-collapse' id='navbarNav'>
+						<ul className='d-flex gap-4 '>
 							<li className='nav-item'>
 								<NavLink to='/' className='nav-link' aria-current='page'>
 									Home

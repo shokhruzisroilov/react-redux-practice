@@ -1,16 +1,33 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Loading } from '../index'
 import { Article } from '../components'
 import ArticleService from '../services/article'
+import { useEffect } from 'react'
+import {
+	getArticleFailure,
+	getArticleStart,
+	getArticleSuccess,
+} from '../app/features/article'
 
-const Main = ({ getArticles }) => {
+const Main = () => {
 	const { articles, isLoading } = useSelector(state => state.article)
+	const dispatch = useDispatch()
 
 	const descriptionStr = str => {
 		if (str.length > 122) {
 			return str.slice(0, 122) + '...'
 		} else {
 			return str
+		}
+	}
+
+	const getArticles = async () => {
+		dispatch(getArticleStart())
+		try {
+			const response = await ArticleService.getArticles()
+			dispatch(getArticleSuccess(response.articles))
+		} catch (error) {
+			dispatch(getArticleFailure(error))
 		}
 	}
 
@@ -22,6 +39,10 @@ const Main = ({ getArticles }) => {
 			console.log(error)
 		}
 	}
+
+	useEffect(() => {
+		getArticles()
+	}, [])
 
 	return (
 		<>
